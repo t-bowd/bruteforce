@@ -19,12 +19,13 @@ for line in lines:
 	if response == 403:
 		print(line + " : Invalid")
 	else:
-		print(line + " : SUCCESS!!!!!!!!!!!!!!!!!!!!!")	
+		print(line + " : SUCCESS!!!!!!!!!!!!!!!!!!!!!")
+		exit()
 
 
 
-
-
+# Convert rockyou.txt to correct encoding
+# iconv -f ISO-8859-1 -t UTF-8 /pentest/passwords/wordlists/rockyou.txt > rockyou_utf8.txt
 
 
 
