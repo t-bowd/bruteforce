@@ -15,7 +15,11 @@ for line in lines:
 	"password": line
 	}
 	r = requests.post(url, data)
-	print(r.content)
+	response = r.status_code
+	if response == 403:
+		print(line + " : Invalid")
+	else:
+		print(line + " : SUCCESS!!!!!!!!!!!!!!!!!!!!!")	
 
 
 
