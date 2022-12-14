@@ -1,7 +1,5 @@
 password
-<<<<<<< HEAD
 hello123
-=======
 alejandro
 buster
 george
@@ -41,16 +39,12 @@ kisses
 manuel
 myspace
 rebeldehello123
->>>>>>> aad859c (fix)
 prettypie1
 5thingslikehouse
 mouserat
 cutiepie1
-<<<<<<< HEAD
-=======
 sdfsdf
 1232456
 dsafghds
 sfdghfdfsghd
 ballons
->>>>>>> aad859c (fix)

