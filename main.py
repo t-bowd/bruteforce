@@ -1,3 +1,90 @@
+import requests
+import sys
+import time
+
+def make_request(url, username, password):
+	# Initialise request
+	data = {
+		"username": username,
+		"password": password,
+		"submit": "xxxx" 
+	}
+	try:
+		r = requests.post(url, data)
+	except requests.exceptions.Timeout:
+		print("Timeout: going to sleep")
+		time.sleep(60)
+		make_request(url, username, password)
+	except request.exceptions.RequestException as e:
+		print("Catastrophic error: exiting")
+		raise SystemExit(e)
+	except requests.exceptions.TooManyRedirects:
+		print("Bad URL, try again")
+		sys.exit()
+	else:
+		# POST request was succesful => manage response type/code
+		print(f"{username}:{password} ---- Status: " + r.status_code)
+		return True
+
+if __name__ == "__main__":
+	import argparse
+	parser = argparse.ArgumentParser(description="http-post-form Bruteforcer")
+	parser.add_argument(url, help="URL of target")
+	parser.add_argument("-u", "--username", help="Username")
+	parser.add_argument("-P", "--passlist", help="Wordlist location")
+
+	# Parse passed arguments
+	args = parser.parse_args()
+	url = args.url
+	username = args.username
+	passlist = args.passlist
+
+	# Read passlist
+	passlist = open(passlist).read().splitlines()
+
+	# Attack
+	for password in passlist:
+		if make_request(url, username, password):
+			print("-" * 50)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import sys, requests, time
 from math import trunc
 # Globals vars
